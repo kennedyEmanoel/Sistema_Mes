@@ -1,4 +1,12 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+} from '@nestjs/common';
 import { ManualRecordService } from './manual-record.service';
 import { CreateManualRecordDto } from './dto/create-manual-record.dto';
 import { UpdateManualRecordDto } from './dto/update-manual-record.dto';
@@ -23,7 +31,10 @@ export class ManualRecordController {
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateManualRecordDto: UpdateManualRecordDto) {
+  update(
+    @Param('id') id: string,
+    @Body() updateManualRecordDto: UpdateManualRecordDto,
+  ) {
     return this.manualRecordService.update(+id, updateManualRecordDto);
   }
 

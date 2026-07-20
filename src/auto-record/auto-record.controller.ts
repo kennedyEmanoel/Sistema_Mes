@@ -1,4 +1,12 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+} from '@nestjs/common';
 import { AutoRecordService } from './auto-record.service';
 import { CreateAutoRecordDto } from './dto/create-auto-record.dto';
 import { UpdateAutoRecordDto } from './dto/update-auto-record.dto';
@@ -23,7 +31,10 @@ export class AutoRecordController {
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateAutoRecordDto: UpdateAutoRecordDto) {
+  update(
+    @Param('id') id: string,
+    @Body() updateAutoRecordDto: UpdateAutoRecordDto,
+  ) {
     return this.autoRecordService.update(+id, updateAutoRecordDto);
   }
 

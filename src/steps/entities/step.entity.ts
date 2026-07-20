@@ -4,18 +4,17 @@ import { ProductionOrder } from '../../production-order/entities/production-orde
 @Entity('steps')
 export class Step {
   @PrimaryGeneratedColumn()
-  id!: number;
+  id: number;
 
   @Column()
-  name!: string;
+  name: string;
 
   @Column({ type: 'int' })
-  order_index!: number;
+  order_index: number;
 
   @Column({ type: 'int', default: 0 })
-  target_quantity!: number;
+  target_quantity: number;
 
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-return
   @ManyToOne(() => ProductionOrder, {
     onDelete: 'CASCADE',
   })

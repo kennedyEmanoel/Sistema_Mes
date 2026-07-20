@@ -12,31 +12,23 @@ import { User } from '../../users/entities/user.entity';
 @Entity('auto_records')
 export class AutoRecord {
   @PrimaryGeneratedColumn()
-  id!: number;
+  id: number;
 
   @Column()
-  imei_serial!: string; // O IMEI ou Serial limpo, extraído da etiqueta
+  imei_serial: string;
 
   @Column({ default: 'Boa' })
-  status!: string; // 'Boa', 'Defeito', ou 'Manutencao'
+  status: string;
 
   @CreateDateColumn()
-  scanned_at!: Date; // A data e hora exata do bipe (nosso Timestamp)
+  scanned_at: Date;
 
-  // --- RELACIONAMENTOS ---
-
-  // 1. Qual é a OP dessa peça?
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-return
   @ManyToOne(() => ProductionOrder, { onDelete: 'CASCADE' })
-  productionOrder!: ProductionOrder;
+  productionOrder: ProductionOrder;
 
-  // 2. Em qual Etapa ela foi bipada?
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-return
   @ManyToOne(() => Step, { onDelete: 'CASCADE' })
-  step!: Step;
+  step: Step;
 
-  // 3. Quem foi o operador que bipou?
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-return
   @ManyToOne(() => User, { onDelete: 'SET NULL', nullable: true })
-  user!: User;
+  user: User;
 }

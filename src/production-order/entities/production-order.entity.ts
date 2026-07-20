@@ -8,25 +8,25 @@ import {
 @Entity('production_orders')
 export class ProductionOrder {
   @PrimaryGeneratedColumn()
-  id!: number;
+  id: number;
 
   @Column({ unique: true })
-  op_number!: string; // Ex: OP-2026-001
+  op_number: string;
 
   @Column()
-  raw_material!: string; // Qual material vai ser usado
+  raw_material: string;
 
   @Column({ type: 'timestamp', nullable: true })
-  start_date!: Date; // Quando a OP realmente começou
+  start_date: Date;
 
   @Column({ type: 'timestamp', nullable: true })
-  estimated_end_date!: Date; // Previsão de fim
+  estimated_end_date: Date;
 
   @Column({ type: 'int' })
-  target_quantity!: number; // A meta total de peças (ex: 5000)
+  target_quantity: number;
 
   @Column({ default: 'Aberta' })
-  status!: string; // Aberta, Em Andamento, Concluída
+  status: string;
 
   @CreateDateColumn()
   created_at!: Date;

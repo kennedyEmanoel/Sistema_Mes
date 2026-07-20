@@ -1,11 +1,21 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+} from '@nestjs/common';
 import { ProductionOrderService } from './production-order.service';
 import { CreateProductionOrderDto } from './dto/create-production-order.dto';
 import { UpdateProductionOrderDto } from './dto/update-production-order.dto';
 
 @Controller('production-order')
 export class ProductionOrderController {
-  constructor(private readonly productionOrderService: ProductionOrderService) {}
+  constructor(
+    private readonly productionOrderService: ProductionOrderService,
+  ) {}
 
   @Post()
   create(@Body() createProductionOrderDto: CreateProductionOrderDto) {
@@ -23,7 +33,10 @@ export class ProductionOrderController {
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateProductionOrderDto: UpdateProductionOrderDto) {
+  update(
+    @Param('id') id: string,
+    @Body() updateProductionOrderDto: UpdateProductionOrderDto,
+  ) {
     return this.productionOrderService.update(+id, updateProductionOrderDto);
   }
 

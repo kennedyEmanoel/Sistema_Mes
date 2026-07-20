@@ -5,7 +5,6 @@ import { ManualRecordController } from './manual-record.controller';
 import { ManualRecord } from './entities/manual-record.entity'; // <-- Importe a entidade
 
 @Module({
-  // Adicione esta linha para registrar a tabela no banco:
   imports: [TypeOrmModule.forFeature([ManualRecord])],
   controllers: [ManualRecordController],
   providers: [ManualRecordService],
